@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="AuthUser"
+            type="com.ashutosh.auth2.ui.auth.AuthViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.SignUpFragment">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:text="@={AuthUser.email}"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="@={AuthUser.pass}"
+            android:inputType="textPassword"
+            android:hint="Password" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signup_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:onClick="@{AuthUser::onSignupClicked}"
+            android:text="SignUp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/google_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:text="Google" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="105dp"
+            android:layout_gravity="center"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+</layout>

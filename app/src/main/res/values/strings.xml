@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Auth2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">611967289199-4cp7aq4fi55s367u0ii8bv96kduv4q7e.apps.googleusercontent.com</string>
+</resources>
