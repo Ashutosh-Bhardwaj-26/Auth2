@@ -18,10 +18,9 @@ import javax.inject.Singleton
 object GoogleSignInModule {
 
     @Provides
-    @Singleton
     fun provideGoogleSignInClient(application: Application): GoogleSignInClient {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(R.string.default_web_client_id.toString())
+            .requestIdToken("611967289199-4cp7aq4fi55s367u0ii8bv96kduv4q7e.apps.googleusercontent.com")
             .requestEmail()
             .build()
         Log.d("module","reach")

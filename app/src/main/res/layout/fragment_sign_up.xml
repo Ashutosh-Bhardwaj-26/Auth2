@@ -14,45 +14,70 @@
         android:layout_height="match_parent"
         tools:context=".ui.SignUpFragment">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_id"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Email"
-            android:text="@={AuthUser.email}"/>
+            android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="@={AuthUser.pass}"
-            android:inputType="textPassword"
-            android:hint="Password" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signup_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:onClick="@{AuthUser::onSignupClicked}"
-            android:text="SignUp" />
+            <ImageView
+                android:id="@+id/image_id"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="120dp"
+                android:src="@drawable/google_btn_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/google_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="300dp"
-            android:text="Google" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="39dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:text="@={AuthUser.email}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_id" />
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="105dp"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:text="@={AuthUser.pass}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_id" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signup_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:onClick="@{AuthUser::onSignupClicked}"
+                android:text="SignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_id" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/google_btn"
+                android:layout_width="239dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/google_btn_bg"
+                android:text="Google"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signup_btn" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </FrameLayout>
 </layout>
