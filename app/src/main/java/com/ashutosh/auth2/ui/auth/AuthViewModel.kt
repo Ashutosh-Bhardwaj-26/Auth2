@@ -1,20 +1,16 @@
 package com.ashutosh.auth2.ui.auth
 
-import android.content.Context
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ashutosh.auth2.data.AuthRepository
 import com.ashutosh.auth2.data.Resource
-import com.ashutosh.auth2.databinding.FragmentSignUpBinding
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -22,7 +18,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class AuthViewModel @Inject constructor(
+class  AuthViewModel @Inject constructor(
     private val repository : AuthRepository
 ): ViewModel() {
 
@@ -35,6 +31,10 @@ class AuthViewModel @Inject constructor(
 
     private val _signupFlow  = MutableStateFlow<Resource<FirebaseUser>?>(null)
     val signupFlow : StateFlow<Resource<FirebaseUser>?> = _loginFlow
+
+    private val _isSignedIn = MutableLiveData<Boolean>()
+    val isSignedIn: LiveData<Boolean>
+        get() = _isSignedIn
 
     val currentUser: FirebaseUser?
         get() = repository.currentUser
@@ -57,6 +57,7 @@ class AuthViewModel @Inject constructor(
         _signupFlow.value = Resource.Loading
         val result = repository.signup(username.toString(), email.get().toString(), pass.get().toString())
         _signupFlow.value = result
+        _isSignedIn.postValue(true)
     }
 
     fun logout(){

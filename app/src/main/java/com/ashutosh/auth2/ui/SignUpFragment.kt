@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -21,12 +19,8 @@ import com.ashutosh.auth2.databinding.FragmentSignUpBinding
 import com.ashutosh.auth2.ui.auth.AuthViewModel
 import com.ashutosh.auth2.ui.auth.GoogleSignInViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
-import kotlin.math.log
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment() {
@@ -53,10 +47,19 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        //AuthViewModel
+        authviewModel.isSignedIn.observe(viewLifecycleOwner, Observer { isSignedIn ->
+            if(isSignedIn){
+                Log.d("signup","isSignupin=true")
+               findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
+            }
+        })
+
+
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(R.string.default_web_client_id.toString())
+            .requestIdToken("611967289199-4cp7aq4fi55s367u0ii8bv96kduv4q7e.apps.googleusercontent.com")
             .requestEmail()
             .build()
         Log.d("first","reach")
@@ -74,6 +77,7 @@ class SignUpFragment : Fragment() {
         viewModel.isSignedIn.observe(viewLifecycleOwner, Observer { isSignedIn ->
             if (isSignedIn) {
                 // User is signed in, navigate to the home screen
+                Log.d("signup","isSignup=true")
                 findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
             }
         })
