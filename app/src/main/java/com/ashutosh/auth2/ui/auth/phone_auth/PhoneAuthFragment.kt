@@ -37,11 +37,7 @@ class PhoneAuthFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        viewModel.isSignedIn.observe(viewLifecycleOwner, Observer { isSignedIn ->
-            if(isSignedIn){
-                findNavController().navigate(R.id.action_phoneAuthFragment_to_homeFragment)
-            }
-        })
+
 
 
         viewModel = ViewModelProvider(this).get(PhoneAuthViewModel::class.java)

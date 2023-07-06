@@ -87,9 +87,11 @@
                 android:inputType="phone"
                 android:paddingStart="@dimen/_80sdp"
                 android:paddingEnd="@null"
+                android:layout_marginStart="@dimen/_100sdp"
                 android:text="@={viewModel.phoneNumber}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

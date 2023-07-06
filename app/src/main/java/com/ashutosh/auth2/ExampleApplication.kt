@@ -1,4 +1,4 @@
-package com.ashutosh.auth2.ui
+package com.ashutosh.auth2
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
