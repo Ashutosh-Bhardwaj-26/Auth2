@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.ashutosh.auth2.ui.SignUpFragment"
+        android:name="com.ashutosh.auth2.ui.auth.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -19,10 +19,13 @@
         <action
             android:id="@+id/action_signUpFragment_to_phoneAuthFragment"
             app:destination="@id/phoneAuthFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_googleAuthFragment"
+            app:destination="@id/googleAuthFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.ashutosh.auth2.ui.LoginFragment"
+        android:name="com.ashutosh.auth2.ui.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -34,16 +37,48 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.ashutosh.auth2.ui.HomeFragment"
+        android:name="com.ashutosh.auth2.ui.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/phoneAuthFragment"
-        android:name="com.ashutosh.auth2.ui.PhoneAuthFragment"
+        android:name="com.ashutosh.auth2.ui.auth.phone_auth.PhoneAuthFragment"
         android:label="fragment_phone_auth"
         tools:layout="@layout/fragment_phone_auth" >
         <action
             android:id="@+id/action_phoneAuthFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_phoneAuthFragment_to_checkCodeAuthFragment"
+            app:destination="@id/checkCodeAuthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/googleAuthFragment"
+        android:name="com.ashutosh.auth2.ui.auth.google_auth.GoogleAuthFragment"
+        android:label="fragment_google_auth"
+        tools:layout="@layout/fragment_google_auth" >
+        <action
+            android:id="@+id/action_googleAuthFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkCodeAuthFragment"
+        android:name="com.ashutosh.auth2.ui.auth.phone_auth.CheckCodeAuthFragment"
+        android:label="CheckCodeAuthFragment" >
+        <action
+            android:id="@+id/action_checkCodeAuthFragment_to_phoneAuthFragment"
+            app:destination="@id/phoneAuthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.ashutosh.auth2.ui.main.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

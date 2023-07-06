@@ -1,6 +1,6 @@
 package com.ashutosh.auth2.di
 
-import com.ashutosh.auth2.ui.HomeFragment
+import com.ashutosh.auth2.ui.main.HomeFragment
 import dagger.Component
 import javax.inject.Singleton
 

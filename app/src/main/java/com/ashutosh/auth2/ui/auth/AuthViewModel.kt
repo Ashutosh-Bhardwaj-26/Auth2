@@ -66,7 +66,6 @@ class  AuthViewModel @Inject constructor(
         _signupFlow.value = null
     }
 
-    fun onSignupClicked(v : View) {
-        signup()
-    }
+
+
 }

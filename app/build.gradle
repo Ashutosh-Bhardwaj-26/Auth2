@@ -102,6 +102,11 @@ dependencies {
     implementation "com.google.dagger:dagger:2.39.1"
     kapt "com.google.dagger:dagger-compiler:2.39.1"
 
+    //color code picker
+    implementation 'com.hbb20:ccp:2.6.0'
+
+    //Circular ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }
 kapt {
